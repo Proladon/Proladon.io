@@ -1,7 +1,7 @@
 <template>
     <div class="navbar">
         <div class="nav-container" v-for="Lnav in navs" :key="Lnav.path">
-            <router-link class="nav-el" :to=Lnav.path> <span>{{Lnav.name}}</span></router-link>
+            <button class="nav-el" >{{Lnav.name}}</button>
         </div>
     </div>
 </template>
@@ -9,20 +9,41 @@
 <script>
     export default {
         name: "NavBar",
+        mounted() {
+            const that = this
+            const navBtn = document.querySelectorAll('.nav-el')
+            const sections = document.querySelectorAll('.section')
+            console.log(navBtn)
+            for (let i=0; i<navBtn.length; i++){
+                navBtn[i].addEventListener('click', ()=>{
+                    scrollSection(i)
+                })
+            }
+
+            function scrollSection(index) {
+                const element = sections[index]
+                that.$store.commit('changeSection', index) //update state
+                window.scrollTo({
+                    'behavior': 'smooth',
+                    'left': 0,
+                    'top': element.offsetTop
+                })
+            }
+        },
         data() {
             return {
                 navs: {
                     nav1: {
-                        path: '/',
                         name: 'Home'
                     },
                     nav2: {
-                        path: '/about',
                         name: 'About'
                     },
                     nav3: {
-                        path: '/skill',
                         name: 'Skill'
+                    },
+                    nav4: {
+                        name: 'Works'
                     },
                 }
             }
@@ -38,14 +59,22 @@
         position: fixed;
     }
 
-    a {
+    .nav-el {
+        background: transparent;
+        border: 1px solid transparent;
+        outline: none;
+        cursor: pointer;
         text-decoration: none;
         color: rgb(194, 194, 194);
         width: 100%;
         height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        transition: 1s;
+    }
+
+    .nav-el:hover {
+        color: mediumspringgreen;
+        border: 1px solid mediumspringgreen;
+        transition: .5s;
     }
 
     .nav-container {
@@ -54,6 +83,5 @@
         margin-bottom: 10px;
         width: 80%;
         height: 50px;
-        /* background: greenyellow; */
     }
 </style>

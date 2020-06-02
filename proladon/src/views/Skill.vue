@@ -118,14 +118,6 @@
                         name: 'AffterEffect',
                         icon: ''
                     },
-                    sk3: {
-                        name: 'Premiere',
-                        icon: ''
-                    },
-                    sk4: {
-                        name: 'Premiere',
-                        icon: ''
-                    },
                 }
             }
         }

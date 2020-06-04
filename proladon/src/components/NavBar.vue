@@ -13,7 +13,7 @@
             const that = this
             const navBtn = document.querySelectorAll('.nav-el')
             const sections = document.querySelectorAll('.section')
-            console.log(navBtn)
+            //add event
             for (let i=0; i<navBtn.length; i++){
                 navBtn[i].addEventListener('click', ()=>{
                     scrollSection(i)
@@ -23,11 +23,13 @@
             function scrollSection(index) {
                 const element = sections[index]
                 that.$store.commit('changeSection', index) //update state
-                window.scrollTo({
-                    'behavior': 'smooth',
-                    'left': 0,
-                    'top': element.offsetTop
-                })
+                setTimeout(() => {
+                    window.scrollTo({
+                        'behavior': 'smooth',
+                        'left': 0,
+                        'top': element.offsetTop
+                    })
+                }, 100);
             }
         },
         data() {
@@ -45,6 +47,9 @@
                     nav4: {
                         name: 'Works'
                     },
+                    nav5: {
+                        name: 'Awards'
+                    },
                 }
             }
         }
@@ -57,6 +62,7 @@
         height: 100vh;
         background-color: rgba(20, 20, 20, .3);
         position: fixed;
+        transition: 1s;
     }
 
     .nav-el {

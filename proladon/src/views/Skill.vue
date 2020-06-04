@@ -3,53 +3,30 @@
         <!-- Programming Skill -->
         <div class="page-wrapper">
 
-        
-        <div class="skill-area">
-            <div class="skill-title">Programming Skill</div>
-            <div class="skill-card-wrapper" v-for="skill in skillProgram" :key="skill.name">
-                <div class="skill-card">
-                    <img :src="skill.icon" alt="none">
-                    <p>{{ skill.name }}</p>
+            <div class="skill-area">
+                <div class="skill-title">Programming Skill</div>
+                <div class="skill-container">
+                    <div class="skill-card-wrapper" v-for="skill in skillProgram" :key="skill.name">
+                            <p>{{ skill.name }}</p>
+                        <div class="skill-value"></div>
+                    </div>
                 </div>
-                <div class="skill-value"></div>
             </div>
-        </div>
 
-        <!-- 3D Skill -->
-        <div class="skill-area">
-            <div class="skill-title">3D Skill</div>
-            <div class="skill-card-wrapper" v-for="skill in skill3D" :key="skill.name">
-                <div class="skill-card">
-                    <img :src="skill.icon" alt="none">
-                    <p>{{ skill.name }}</p>
+            <!-- 3D Skill -->
+            <div class="skill-area">
+                <div class="skill-title">3D Skill</div>
+                <div class="skill-container">
+                    <div class="skill-card-wrapper" v-for="skill in skill3D" :key="skill.name">
+                        <div class="skill-card">
+                            <img :src="skill.icon" alt="none">
+                            <p>{{ skill.name }}</p>
+                        </div>
+                        <div class="skill-value"></div>
+                    </div>
                 </div>
-                <div class="skill-value"></div>
             </div>
-        </div>
-
-        <!-- 2D Skill -->
-        <div class="skill-area">
-            <div class="skill-title">2D Skill</div>
-            <div class="skill-card-wrapper" v-for="skill in skill2D" :key="skill.name">
-                <div class="skill-card">
-                    <img :src="skill.icon" alt="none">
-                    <p>{{ skill.name }}</p>
-                </div>
-                <div class="skill-value"></div>
-            </div>
-        </div>
-
-        <!-- Media Skill -->
-        <div class="skill-area">
-            <div class="skill-title">Media Skill</div>
-            <div class="skill-card-wrapper" v-for="skill in skillMedia" :key="skill.name">
-                <div class="skill-card">
-                    <img :src="skill.icon" alt="none">
-                    <p>{{ skill.name }}</p>
-                </div>
-                <div class="skill-value"></div>
-            </div>
-        </div>
+            
         </div>
     </div>
 </template>
@@ -129,7 +106,7 @@
         padding-top: 30px;
         padding-bottom: 30px;
         width: 100%;
-        height: 100%;
+        height: 100vh;
         background-color: rgb(32, 32, 32);
     }
 
@@ -146,10 +123,14 @@
         align-items: center;
     }
 
+    .skill-container {
+        display: flex;
+    }
+
     .skill-card-wrapper {
         width: 150px;
         height: 35px;
-        margin-top: 30px;
+        margin: 30px;
         transition: .5s;
     }
 
@@ -169,6 +150,7 @@
         }
 
         p {
+            color: white;
             margin-left: 10px;
             align-self: center;
         }
@@ -176,21 +158,12 @@
 
     .skill-value {
         width: 150px;
-        height: 5px;
+        height: 1px;
         background-color: rgb(47, 255, 203);
     }
 
-    @keyframes flicker {
-        0% {
-            opacity: 1;
-        }
-
-        50% {
-            opacity: 0;
-        }
-
-        100% {
-            opacity: 1;
-        }
+    p{
+        color:white;
+        letter-spacing: 5px;
     }
 </style>

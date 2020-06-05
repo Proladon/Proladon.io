@@ -107,7 +107,7 @@
         padding-bottom: 30px;
         width: 100%;
         height: 100vh;
-        background-color: rgb(32, 32, 32);
+        background-color: rgb(38,38,38);
     }
 
     .skill-area {

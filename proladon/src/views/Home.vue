@@ -1,41 +1,31 @@
 <template>
     <div class="home bg" >
-        <div class="page-wrapper">
-            <div class="title-wrapper">
-                    <h1 id="ch-name" data-aos="fade-down" data-aos-duration="2000">
-                        Chiang<br>
-                        Yu Hong
-                    </h1>
-                    <p id="en-name" data-aos="fade-up" data-aos-duration="2000">
-                        Rex / Proladon
-                    </p>
-                    <button id="entry-btn" @click="entry()">
-                        <typical
-                        :steps="['', 1500, '  >cd Profile', 100]"
-                        />
-                        <typical
-                        :steps="['',200, '_', 100]"
-                        :loop="Infinity"
-                        />
-                    </button>
-                    <p id="pro" data-aos="fade-right">
-                        Industrial Designer <span>/</span><br>
-                        Coder <span>/</span><br>
-                        2D/3D Artist <span>/</span>
-                    </p>
-            </div>
-            
+        <div class="topper-wrapper">
+            <div class="p"></div>
+            <a class="nav" href="">About</a>
+            <a class="nav" href="">Skills</a>
+            <a class="nav" href="">Works</a>
+            <a class="nav" href="">Awards</a>
+            <a class="dc" title="Discord" href="https://shelter-zone.github.io/SHELTER-ZONE/#/" target="_blank"></a>
         </div>
-        
+        <div class="ch-name" v-prlx.mobile="{speed:0.5}">
+            <p>Chaing, Yu Houng</p>
+        </div>
+
+        <div class="pro" v-prlx.mobile="{speed:0.2, reverse: true}">
+            <span>Coder</span>
+            <span>Industrial Designer</span>
+            <span>2D/3D Artist</span>
+        </div>    
     </div>
 </template>
 
 <script>
-    import typical from 'vue-typical'
+    // import typical from 'vue-typical'
     export default {
         name: 'Home',
         components: {
-            typical,
+            // typical,
         },
         props: [
             'section'
@@ -49,6 +39,9 @@
                             'top': element.offsetTop
                         })
                 this.$store.commit('changeSection', 1)
+            },
+            test(){
+                alert("123")
             }
         }
     }
@@ -56,15 +49,8 @@
 
 <style lang="scss" scoped>
     @font-face {
-    font-family: 'AV Semi-Round straight';
+    font-family: 'Roboto-Regular';
     src:url('../assets/font/AV Semi-Round straight.ttf')
-    }
-    @mixin titleWord($color, $size){
-        color: $color;
-        font-family: AV Semi-Round straight;
-        font-size: $size;
-        text-align: right;
-        text-shadow: 0.1em 0.1em 0.1em rgb(0, 0, 0);
     }
 
     .home {
@@ -73,67 +59,75 @@
         height: 100vh;
         background-color: rgb(38, 38, 38);
         overflow-y: hidden;
+        position: relative;
     }
 
     .bg {
         width: 100vw;
         height: 100vh;
-        background-image: url('../assets/img/profio2.png');
-        background-size: 70%;
+        background-image: url('../assets/img/profio3.png');
+        background-size: cover;
         background-attachment: fixed;
-        background-position: left center;
+        background-position: center;
         background-repeat: no-repeat;
         transition: 4s all cubic-bezier(0.22, 1, 0, 1);
     }
-    
-    .title-wrapper {
-        overflow-y: hidden;
-        width: 100vw;
-        height: 80vh;
-        float: right;
-        color: white;
-        margin-right: 5vw;
-        margin-top: 10vh;
-        margin-bottom: 10vh;
-        letter-spacing: 10px;
+    .topper-wrapper{
         
-    }
-
-    #ch-name{
-        height: 30%;
-        @include titleWord(rgb(112,191,228), 5vw)
-    }
-
-    #en-name{
-        @include titleWord(white, 2vw)
-    }
-
-    #pro{
-        margin-top: 42vh;
-        @include titleWord(white, 1vw)
-    }
-
-    #entry-btn{
+        width: 100%;
+        top: 0;
+        position: absolute;
         display: flex;
-        padding-left: 40px;
-        height: 10%;
-        width: 20vw;
-        margin: 10px;
-        color: white;
-        font-size: 2vw;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .nav{
         font-family: consolas;
-        letter-spacing: 10px;
-        float: right;
-        margin-top: 17vh;
+        color: skyblue;
+        text-decoration: none;
+    }
+
+    .p{
+        width: 30px;
+        height: 30px;
+        margin: 2vw;
+        background-size: cover;
+        background-image: url('../assets/img/P.png');
+    }
+
+    .dc{
+        width: 30px;
+        height: 30px;
+        margin: 2vw;
+        background-size: cover;
+        background-image: url('../assets/icon/Discord-Logo-White.svg');
         background-color: transparent;
-        border: solid 1px rgb(112,191,228);
-        transition: 1s;
+        border: none;
+        outline: none;
+        cursor: pointer;
     }
 
-    #entry-btn:hover{
-        background-color: rgb(112,191,228);
-        color: rgb(50, 50, 50);
-        transition: .8s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    .ch-name{
+        
+        color: white;
+        font-size: 5vw;
+        letter-spacing: 10px;
+        padding-top: 15vh;
+        text-align: center;
+        p{
+            font-family: consolas;
+        }
     }
 
+    .pro{
+        color: white;
+        padding-top: 70vh;
+        text-align: center;
+        span{
+            font-family: consolas;
+            margin-left: 5vw;
+            margin-right: 5vw;
+        }
+    }
 </style>

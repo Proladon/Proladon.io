@@ -140,5 +140,7 @@
     .page-wrapper {
         width: calc(100% - 100px);
         margin-left: 100px;
+        height: 100vh;
+        // overflow-y: hidden;
     }
 </style>

@@ -1,44 +1,54 @@
 <template>
     <div class="about">
-        <div class="page-wrapper">
-            <div class="section-header">
-                <div class="img-wrapper">
-                    <img id="oreki" src="@/assets/img/Oreki.png">
+        <div class="panel">
+            <div class="inpanel-wrapper">
+                <div class="left-inpanel">
+                    <div class="top">
+                        <div id="section1" data-aos="fade-down">
+                            <p class="title">Tatung University (TTU)</p>
+                            <div class="content-wrapper">
+                                
+                                <p class="content">Industrial Design (Master)</p>
+                            </div>
+                        </div>
+                        <div id="section2" data-aos="fade-down" data-aos-delay="300">
+                            <p class="title">Oriental Institute of Technology (OIT)</p>
+                            <div class="content-wrapper">
+                                <p class="content">Industrial Design</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mid">
+                        <p class="title" data-aos="fade" data-aos-duration="2000" data-aos-delay="400">
+                            Live for <br> 
+                            Create & Share.
+                        </p>
+                    </div>
+                    <div class="bottom">
+                        <div class="card" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
+                            <p class="title">Name</p>
+                            <div class="content-wrapper">
+                                <p class="content">江宇弘 (Taiwan)</p>
+                                <p class="content">Chaing, Yu Houng</p>
+                                <p class="content">Rex / Proladon</p>
+                            </div>
+                        </div>
+                        <div class="card" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
+                            <p class="title">Contact</p>
+                            <div class="content-wrapper">
+                                <p class="content">Proladon@gmail.com</p>
+                                <p class="content">Discord：Proladon#7525</p>
+                                <p class="content">Line：Proladon</p>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div class="intro">
-                    <p>Proladon / Rex / 綠茶 (Taiwan)</p>
-                    <p>
-                        Language: *Chinese / **English
-                    </p>
-                    <br>
-                    <p>
-                        <strong>Tatung University (TTU) :</strong> Industrial Design (Master)
-                    </p>
-                    <p>
-                        <strong>Oriental Institute of Technology (OIT) :</strong> Industrial Design<br>
-                    </p>
-                    <p>
-                        <strong>Songshan High School of Commerce and Home Economics (SSVS) :</strong> Advertising Design
-                        Section<br>
-                    </p>
+
+                <div class="right-inpanel">
+                    <img class="icon" src="../assets/icon/P.png" alt=""  data-aos="flip-left" data-aos-duration="1500" data-aos-delay="600">
+                    <img class="icon" src="../assets/icon/down.png" alt=""  data-aos="fade-down" data-aos-duration="1500" data-aos-delay="600">
                 </div>
             </div>
-
-            <div class="exp">
-                <div class="card-wrapper">
-                    <div class="card">
-                        <h1>Internship</h1>
-                        <p>Cooler Master (Industrial Designer)</p>
-                    </div>
-
-                    <div class="card">
-                        <h1>Work Shop</h1>
-                        <p>福興集團 | 3F Zipper</p>
-                        <p>華宇錚鎣集團 | 華宇織造 HUAYU TEXTILE</p>
-                    </div>
-                </div>
-            </div>
-
         </div>
     </div>
 </template>
@@ -47,7 +57,7 @@
     export default {}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
     .about {
         margin: 0;
         width: 100%;
@@ -59,36 +69,88 @@
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
-    }
-
-    #oreki {
-        width: 250px;
-        padding-left: 5vw;
-    }
-
-    .section-header {
-        padding-top: 50px;
-        width: 100%;
-        /* height: 30%; */
-        color: white;
-        font-size: 1.5vw;
         display: flex;
-        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
     }
 
-    .section-header p {
-        padding-left: 5vw;
-        text-align: left;
+    p.title{
+            font-size: 1.25vw;
+            font-family: consolas;
+            text-align: left;
+    }
+    p.content{
+            font-size: 1vw;
+            font-family: consolas;
+            text-align: left;
     }
 
-    .exp {
-        width: 100%;
-        height: 60%;
-        background-color: rgba(38, 38, 38, .85);
+    .content-wrapper{
+        padding-top: 2vh;
     }
 
-    .card {
-        margin: 20px;
-        display: inline-block;
+    .panel{
+        width: 80%;
+        height: 80%;
+        background: #E0E0E0;
+        opacity: 70%;
+        display: flex;
+        align-items: center;        
+
+        .inpanel-wrapper{
+            width: 85%;
+            height: 85%;
+            margin: 0 auto;
+            display: flex;
+        }
+
+        .left-inpanel{
+            width: 80%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+
+            .top{
+                width: 100%;
+                height: 30%;
+                
+                #section2{
+                    margin-top: 2vw;
+                }
+            }
+            .mid{
+                width: 100%;
+                height: 40%;
+                p{
+                    font-size: 5vw;
+                }
+            }
+            .bottom{
+                width: 100%;
+                height: 30%;
+                display: flex;
+                
+                .card{
+                    margin-right: 20%;
+                    p.content{
+                        line-height: 40px;
+                    }
+                }
+            }
+        }
+
+        .right-inpanel{
+            width: 20%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            justify-content: space-between;
+            
+            .icon{
+                width: 50%;
+                padding: 10px;
+            }
+        }
     }
 </style>

@@ -5,8 +5,8 @@
             <Home class="section" :section="current_section"/>
             <About class="section" />
             <Skill class="section" />
-            <Works class="section" />
             <Awards class="section" />
+            <Works class="section" />
         </div>
         
     </div>
@@ -100,7 +100,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
     * {
         margin: 0;
-        overflow-x: hidden;
         font-family: 'Roboto', sans-serif;
         // overflow-y: hidden;
     }

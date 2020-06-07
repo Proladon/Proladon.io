@@ -60,10 +60,10 @@
         background-color: rgb(38, 38, 38);
         overflow-y: hidden;
         position: relative;
+        
     }
 
     .bg {
-        width: 100vw;
         height: 100vh;
         background-image: url('../assets/img/profio3.png');
         background-size: cover;
@@ -71,6 +71,7 @@
         background-position: center;
         background-repeat: no-repeat;
         transition: 4s all cubic-bezier(0.22, 1, 0, 1);
+        
     }
     .topper-wrapper{
         

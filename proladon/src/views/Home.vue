@@ -2,10 +2,22 @@
     <div class="home bg" >
         <div class="topper-wrapper">
             <div class="p"></div>
-            <a class="nav" href="">About</a>
-            <a class="nav" href="">Skills</a>
-            <a class="nav" href="">Works</a>
-            <a class="nav" href="">Awards</a>
+            <div class="ty-wrapper">
+                <typical 
+                    class="vt-title"
+                    :steps="['_', 500, '']"
+                    :loop="3"
+                />
+                <typical 
+                    class="vt-title"
+                    :steps="['',1750, 'Hello World!', 500, 'Hello World! I\'m Proladon.']"
+                />
+                <typical 
+                    class="vt-title"
+                    :steps="['',1700, '_', 500,' ']"
+                    :loop="Infinity"
+                />
+            </div>
             <a class="dc" title="Discord" href="https://shelter-zone.github.io/SHELTER-ZONE/#/" target="_blank"></a>
         </div>
         <div class="ch-name" v-prlx.mobile="{speed:0.5}">
@@ -21,11 +33,11 @@
 </template>
 
 <script>
-    // import typical from 'vue-typical'
+    import typical from 'vue-typical'
     export default {
         name: 'Home',
         components: {
-            // typical,
+            typical,
         },
         props: [
             'section'
@@ -82,11 +94,13 @@
         justify-content: space-between;
         align-items: center;
     }
-
-    .nav{
+    .ty-wrapper{
+        display: flex;
+    }
+    .vt-title{
         font-family: consolas;
+        font-size: 20px;
         color: skyblue;
-        text-decoration: none;
     }
 
     .p{

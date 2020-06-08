@@ -103,6 +103,11 @@
         font-family: 'Roboto', sans-serif;
         // overflow-y: hidden;
     }
+    // font
+    @font-face{
+        font-family: "AVS";    
+        src: url('../src/assets/font/AV Semi-Round straight.ttf');
+    }
 
     #app {
         font-family: Avenir, Helvetica, Arial, sans-serif;

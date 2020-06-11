@@ -50,66 +50,62 @@
             <div class="skill-content">
                 <div class="skill-item-wrapper">
                     <hooper id="skill-hooper" group="group1">
-                        <slide class="title3" id="fullstack">
-                            <div class="skill-section-wrapper">
-                                <p class="skill-section">Front-End</p>
-                                <div class="item" v-for="fn in frontend" :key="fn">
-                                    <p>{{ fn}}</p>
-                                </div>
-                                <p class="skill-section">Back-End</p>
-                                <div class="item" v-for="bn in backend" :key="bn">
-                                    <p>{{ bn}}</p>
-                                </div>
+
+                        <slide class="title3 two-col">
+                            <div class="group-wrapper">
+                                <!-- FrontEnd -->
+                                <Skills title="Front-End" :dict="frontend" />
+                                <!-- BackEnd -->
+                                <Skills title="Back-End" :dict="backend" />
                             </div>
-                            
-                            <div class="skill-section-wrapper">
-                                <p class="skill-section">Framework</p>
-                                <div class="item" v-for="fw in framework" :key="fw">
-                                    <p>{{ fw}}</p>
-                                </div>
-                                <p class="skill-section">DataBase</p>
-                                <div class="item" v-for="db in database" :key="db">
-                                    <p>{{ db }}</p>
-                                </div>
+
+                            <div class="group-wrapper">
+                                <!-- Framework -->
+                                <Skills title="Framework" :dict="framework" />
+                                <Skills title="DataBase" :dict="database" />
+                            </div>
+                        </slide>
+
+                        <slide class="title3 two-col">
+                            <div class="group-wrapper">
+                            <!-- IDE/Editor -->
+                            <Skills title="IDE/Editor" :dict="ide" />
+                            <!-- Git -->
+                            <Skills title="Git" :dict="Git" />
+                            </div>
+                            <div class="group-wrapper">
+                            <!-- Other -->
+                            <Skills title="Other" :dict="other" />
+                            </div>
+                        </slide>
+
+                        <slide class="title3 two-col">
+                            <!-- Industrial Design -->
+                            <div class="group-wrapper">
+                                <Skills title="Modeling" :dict="skillID" />
+                                <Skills title="Renderer" :dict="skillrender" />
+                            </div>
+                            <div class="group-wrapper">
+                                <Skills title="3D Print" :dict="skill3dp" />
                             </div>
                         </slide>
 
                         <slide class="title3">
-                            <p class="skill-section">IDE/Editor</p>
-                            <div class="item" v-for="IDE in ide" :key="IDE">
-                                <p>{{ IDE }}</p>
-                            </div>
-                            <p class="skill-section">Git</p>
-                            <div class="item" v-for="Git in git" :key="Git">
-                                <p>{{ Git }}</p>
-                            </div>
+                            <Skills :dict="skill3D" />
                         </slide>
 
                         <slide class="title3">
-                            <div class="item" v-for="sk in skillID" :key="sk">
-                                <p>{{ sk }}</p>
-                            </div>
+                            <Skills :dict="skillGD" />
                         </slide>
+
                         <slide class="title3">
-                            <div class="item" v-for="sk in skill3D" :key="sk">
-                                <p>{{ sk }}</p>
-                            </div>
+                            <Skills :dict="skill2D" />
                         </slide>
+
                         <slide class="title3">
-                            <div class="item" v-for="sk in skillGD" :key="sk">
-                                <p>{{ sk }}</p>
-                            </div>
+                            <Skills :dict="skillMedia" />
                         </slide>
-                        <slide class="title3">
-                            <div class="item" v-for="sk in skill2D" :key="sk">
-                                <p>{{ sk }}</p>
-                            </div>
-                        </slide>
-                        <slide class="title3">
-                            <div class="item" v-for="sk in skillMedia" :key="sk">
-                                <p>{{ sk }}</p>
-                            </div>
-                        </slide>
+                        <hooper-pagination slot="hooper-addons"></hooper-pagination>
                     </hooper>
 
                 </div>
@@ -122,15 +118,19 @@
     import {
         Hooper,
         Slide,
-        Navigation as HooperNavigation
+        Navigation as HooperNavigation,
+        Pagination as HooperPagination,
     } from 'hooper';
     import 'hooper/dist/hooper.css';
+    import Skills from '@/components/Skills.vue'
     export default {
         name: "Skill",
         components: {
             Hooper,
             Slide,
             HooperNavigation,
+            Skills,
+            HooperPagination,
         },
         data() {
             return {
@@ -140,45 +140,178 @@
                 type3D: 2,
                 type2D: 4,
                 typeMedia: 6,
-
-                frontend:['JavaScript', 'HTML', 'CSS', 'Json'],
-                backend:['Python', 'C#'],
-                framework:['discord.py', 'Vue.js', '.Net WPF', 'Tkinter'],
-                database:['MongoDB', 'SQLite3'],
-                ide:['Visual Studio Code', 'Visual Studio'],
-                git:['Github', 'Gitkraken'],
-
-
-                skillID:[
-                    'Creo (Pro/E)',
-                    'Rhino',
-                    'CURA',
-                    'Keyshot',
-                    'AutoCAD',
-                ],
-                skill3D:[
-                    'Blender',
-                    'Zbrush',
-                ],
-                skillGD:[
-                    'PhotoShop',
-                    'Illustrator',
-                    'Indesign',
-                ],
-                skill2D:[
-                    'Krita',
-                    'MediBang Paint Pro',
-                    'live2D'
-                ],
-                skillMedia:[
-                    'Premiere',
-                    'AffterEffect',
-                    'SonyVega',
-                ]
+                // frontend
+                frontend: {
+                    js: {
+                        name: 'JavaScript',
+                        value: '55',
+                    },
+                    html: {
+                        name: 'HTML',
+                        value: '80',
+                    },
+                    css: {
+                        name: 'CSS',
+                        value: '40',
+                    },
+                    json: {
+                        name: 'Json',
+                        value: '85',
+                    }
+                },
+                // backend
+                backend: {
+                    py: {
+                        name: 'Python',
+                        value: '80',
+                    },
+                    cs: {
+                        name: 'C#',
+                        value: '40',
+                    },
+                },
+                // framework
+                framework: {
+                    vue: {
+                        name: 'Vue.js',
+                        value: '45',
+                    },
+                    wpf: {
+                        name: '.Net WPF',
+                        value: '40',
+                    },
+                    dc: {
+                        name: 'discord.py',
+                        value: '95',
+                    },
+                },
+                // DataBase
+                database: {
+                    mongo: {
+                        name: 'MongoDB',
+                        value: '30',
+                    },
+                    sql3: {
+                        name: 'SQLite3',
+                        value: '30',
+                    }
+                },
+                // IDE
+                ide: {
+                    vsc: {
+                        name: 'Visual Studio Code',
+                        value: '85',
+                    },
+                    vs: {
+                        name: 'Visual Studio',
+                        value: '60',
+                    }
+                },
+                // Git
+                Git: {
+                    git: {
+                        name: 'Github',
+                        value: '70',
+                    },
+                    gitk: {
+                        name: 'Gitkraken',
+                        value: '70',
+                    }
+                },
+                // Other
+                other:{
+                    google:{
+                        name:'Google',
+                        value:'85',
+                    },
+                    psychic:{
+                        name:'Psychic',
+                        value:'65',
+                    }
+                },
+                // Industrial Design
+                skillID: {
+                    creo: {
+                        name: 'Creo (Pro/E)',
+                        value: '85',
+                    },
+                    rhino: {
+                        name: 'Rhino',
+                        value: '50',
+                    },
+                    cad: {
+                        name: 'AutoCAD',
+                        value: '75',
+                    },
+                },
+                skill3dp: {
+                    cura: {
+                        name: 'CURA',
+                        value: '80',
+                    },
+                },
+                skillrender: {
+                    keyshot: {
+                        name: 'KeyShot',
+                        value: '65',
+                    },
+                },
+                // Industrial Design
+                skill3D: {
+                    blender: {
+                        name: 'Blender',
+                        value: '80'
+                    },
+                    zb: {
+                        name: 'Zbrush',
+                        value: '65'
+                    },
+                },
+                skillGD: {
+                    ps: {
+                        name: 'PhotoShop',
+                        value: '90'
+                    },
+                    ai: {
+                        name: 'Illustrator',
+                        value: '70'
+                    },
+                    id: {
+                        name: 'Indesign',
+                        value: '80'
+                    },
+                },
+                skill2D: {
+                    kt: {
+                        name: 'Krita',
+                        value: '60'
+                    },
+                    mdp: {
+                        name: 'MediBang Paint Pro',
+                        value: '60'
+                    },
+                    lv2d: {
+                        name: 'live2D',
+                        value: '50'
+                    },
+                },
+                skillMedia: {
+                    pr: {
+                        name: 'Premiere',
+                        value: '80'
+                    },
+                    ae: {
+                        name: 'AffterEffect',
+                        value: '70'
+                    },
+                    sv: {
+                        name: 'SonyVega',
+                        value: '60'
+                    },
+                }
             }
         },
         methods: {
-           
             udType(payload) {
                 this.cur_Type = payload.currentSlide
                 if (this.cur_Type - this.last_Type > 0) {
@@ -206,6 +339,10 @@
 </script>
 
 <style lang="scss" scoped>
+    * {
+        font-family: consolas;
+    }
+
     @mixin center-item {
         display: flex;
         justify-content: center;
@@ -233,6 +370,7 @@
         font-family: consolas;
         font-size: 3vw;
     }
+
     .title3 {
         color: #C8C8C8;
         text-align: left;
@@ -245,14 +383,10 @@
     #skill-hooper {
         outline: none;
     }
-    
-    #skill-hooper{
+
+    #skill-hooper {
         height: 100%;
     }
-    .skill-section{
-        font-size: 2vw;
-    }
-
 
     .skill-wrapper {
         width: 85%;
@@ -272,10 +406,13 @@
             height: 15%;
             background: #C8C8C8;
             @include center-item();
-
-            #stype {}
         }
 
+        .two-col {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+        }
 
         .skill-content {
             width: 100%;
@@ -287,9 +424,8 @@
                 height: 100%;
                 margin-top: 30px;
 
-                #fullstack{
-                    display: flex;
-                    justify-content: space-around;
+                .group-wrapper {
+                    width: 45%;
                 }
             }
         }

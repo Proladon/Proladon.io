@@ -119,6 +119,10 @@
         
     }
 
+    body{
+        background-color: rgb(38, 38, 38);
+    }
+
     .index_nav{
         visibility: collapse;
         background-color: transparent !important;

@@ -1,7 +1,7 @@
 <template>
     <div class="skill">
         <div class="skill-wrapper">
-            <div class="skill-class">
+            <div class="skill-class" data-aos="fade-down">
 
                 <hooper id="class-hooper" ref="classHooper" :wheelControl="false" :keysControl="false"
                     :mouseDrag="false" :touchDrag="false">
@@ -20,7 +20,7 @@
                 </hooper>
             </div>
 
-            <div class="skill-type">
+            <div class="skill-type" data-aos="fade-down" data-aos-delay="50">
                 <hooper id="type-hooper" ref="typeHooper" @slide="udType" group="group1">
                     <slide class="title2">
                         FullStack Skills
@@ -47,7 +47,7 @@
                 </hooper>
             </div>
 
-            <div class="skill-content">
+            <div class="skill-content" data-aos="fade-down" data-aos-delay="100">
                 <div class="skill-item-wrapper">
                     <hooper id="skill-hooper" group="group1">
 

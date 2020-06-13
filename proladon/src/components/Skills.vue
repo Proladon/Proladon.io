@@ -1,7 +1,7 @@
 <template>
     <div class="skills">
         <p class="skill-section">{{title}}</p>
-        <div class="item" v-for="key in dict" :key="key">
+        <div class="item" v-for="key in dict" :key="key.name">
             <div class="skill-name-wrapper">
                 <p>{{ key.name}}</p>
             </div>

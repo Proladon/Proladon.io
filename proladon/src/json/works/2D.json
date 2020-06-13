@@ -1,0 +1,14 @@
+{
+    "w1": {
+        "img": "https://cdna.artstation.com/p/assets/images/images/014/023/780/large/proladon-1.jpg?1542128391",
+        "size":50
+    },
+    "w2": {
+        "img": "https://cdna.artstation.com/p/assets/images/images/005/600/100/large/proladon-.jpg?1492353603",
+        "size":100
+    },
+    "w3":{
+        "img": "https://cdnb.artstation.com/p/assets/images/images/004/345/787/large/rex-proladon-t-34-85.jpg?1482755170",
+        "size":80
+    }
+}

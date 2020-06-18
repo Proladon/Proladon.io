@@ -68,14 +68,14 @@
 
                         <slide class="title3 two-col">
                             <div class="group-wrapper">
-                            <!-- IDE/Editor -->
-                            <Skills title="IDE/Editor" :dict="ide" />
-                            <!-- Git -->
-                            <Skills title="Git" :dict="Git" />
+                                <!-- IDE/Editor -->
+                                <Skills title="IDE/Editor" :dict="ide" />
+                                <!-- Git -->
+                                <Skills title="Git" :dict="Git" />
                             </div>
                             <div class="group-wrapper">
-                            <!-- Other -->
-                            <Skills title="Other" :dict="other" />
+                                <!-- Other -->
+                                <Skills title="Other" :dict="other" />
                             </div>
                         </slide>
 
@@ -219,14 +219,14 @@
                     }
                 },
                 // Other
-                other:{
-                    google:{
-                        name:'Google',
-                        value:'85',
+                other: {
+                    google: {
+                        name: 'Google',
+                        value: '85',
                     },
-                    psychic:{
-                        name:'Psychic',
-                        value:'65',
+                    psychic: {
+                        name: 'Psychic',
+                        value: '65',
                     }
                 },
                 // Industrial Design

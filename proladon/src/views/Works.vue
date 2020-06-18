@@ -29,13 +29,15 @@
                     <div class="content-wrapper" data-aos="fade-right">
                         <p class="name"><strong>Name:</strong> {{ name }}</p>
                         <p class="year"><strong>Year:</strong> {{ year }}</p>
-                        <p class="link"><strong>Link:</strong> <a :href="link" target="_blank">Link</a></p>
+                        <p class="link"><strong>Link:</strong> <a :href="link" target="_blank">{{linkName}}</a></p>
                         <p class="note"><strong>Description:</strong><br>{{ note }}</p>
                     </div>
                 </div>
             </transition>
         </div>
-
+        <div class="scroll-down" v-if="scrolldown === true">
+            <span>Scroll Down</span>
+        </div>
     </div>
 </template>
 
@@ -49,6 +51,7 @@
         data() {
             return {
                 current: 'ID',
+                scrolldown: false,
                 focus: '',
                 obj: workID,
                 worksID: workID,
@@ -57,6 +60,7 @@
                 name: String,
                 year: String,
                 link: String,
+                linkName: String,
                 note: String,
             }
         },
@@ -73,12 +77,35 @@
                 this.name = data.name
                 this.year = data.years
                 this.link = data.link
+                this.linkName = data.linkName
                 this.note = data.note
             },
             unfocus() {
                 this.focus = ''
             }
-        }
+        },
+        mounted(){
+            const sectionWorks = document.getElementById("sectionWorks")
+            const options = {
+                threshold: 0.3,
+
+            }
+            const observer = 
+                new IntersectionObserver((entries, observer)=>{
+                    entries.forEach(e=>{
+                        if(e.isIntersecting === true){
+                            this.scrolldown = true
+                        }
+                        else{
+                            this.scrolldown = false
+                        }
+                    })
+                    console.log(entries, observer)
+                    
+                }, options)
+            
+            observer.observe(sectionWorks)
+        },
     }
 </script>
 
@@ -175,7 +202,7 @@
         }
 
         .work-thumbnail:hover {
-            border: solid 1px rgb(105, 227, 238);
+            border: solid 4px rgb(105, 227, 238);
             transition: .5s;
         }
     }
@@ -197,7 +224,6 @@
                 @include centerImg();
             }
         }
-
         .note-panel {
             width: 20%;
             height: 100%;
@@ -215,7 +241,23 @@
                 line-height: 50px;
                 text-align: justify;
             }
+            a{
+                text-decoration: none;
+                color: rgb(39, 169, 202);
+            }
+        }
+    }
 
+    .scroll-down{
+        width: 100%;
+        position: fixed;
+        color: white;
+        bottom: 100px;
+        span{
+            background-color: red;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 20px;
         }
     }
 

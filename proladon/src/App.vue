@@ -1,12 +1,13 @@
 <template>
     <div id="app">
-        <NavBar :class="{index_nav: current_section==0}" />
+        <!-- <NavBar :class="{index_nav: current_section==0}" /> -->
         <div class="index-wrapper">
             <Home class="section" :section="current_section"/>
             <About class="section" />
             <Skill class="section" />
             <Awards class="section" />
-            <Works class="section" />
+            <Youtube class="section" />
+            <Works class="section" id="sectionWorks"/>
         </div>
         
     </div>
@@ -14,20 +15,22 @@
 
 <script>
     // import _ from 'lodash'
-    import NavBar from '@/components/NavBar.vue'
+    // import NavBar from '@/components/NavBar.vue'
     import Home from '@/views/Home.vue'
     import About from '@/views/About.vue'
     import Skill from '@/views/Skill.vue'
     import Awards from '@/views/Awards.vue'
+    import Youtube from '@/views/Youtube.vue'
     import Works from '@/views/Works.vue'
 
     export default {
         components: {
-            NavBar,
+            // NavBar,
             Home,
             About,
             Skill,
             Awards,
+            Youtube,
             Works
         },
         data(){
@@ -35,6 +38,23 @@
                 current_section: this.$store.state.current_section
             }
         },
+        // mounted(){
+        //     const sectionWorks = document.getElementById("sectionWorks")
+        //     const options = {
+        //         threshold: 0.5,
+
+        //     }
+        //     const observer = 
+        //         new IntersectionObserver((entries, observer)=>{
+        //             entries.forEach(e=>{
+        //                 if(e.isIntersecting === true) alert("in")
+        //             })
+        //             console.log(entries, observer)
+                    
+        //         }, options)
+            
+        //     observer.observe(sectionWorks)
+        // },
         // created() {
         //     var ticking = false
         //     // add wheel Event

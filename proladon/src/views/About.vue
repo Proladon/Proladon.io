@@ -7,7 +7,7 @@
                         <div id="section1" data-aos="fade-down">
                             <p class="title">Tatung University (TTU)</p>
                             <div class="content-wrapper">
-                                
+
                                 <p class="content">Industrial Design (Master)</p>
                             </div>
                         </div>
@@ -20,12 +20,12 @@
                     </div>
                     <div class="mid">
                         <p class="title" data-aos="fade" data-aos-duration="2000" data-aos-delay="400">
-                            Live for <br> 
+                            Live for <br>
                             Create & Share.
                         </p>
                     </div>
                     <div class="bottom">
-                        <div class="card" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
+                        <div class="card" id="name" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
                             <p class="title">Name</p>
                             <div class="content-wrapper">
                                 <p class="content">江宇弘 (Taiwan)</p>
@@ -33,7 +33,7 @@
                                 <p class="content">Rex / Proladon</p>
                             </div>
                         </div>
-                        <div class="card" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
+                        <div class="card" id="contact" data-aos="fade-left" data-aos-duration="2000" data-aos-delay="500">
                             <p class="title">Contact</p>
                             <div class="content-wrapper">
                                 <p class="content">Proladon@gmail.com</p>
@@ -45,8 +45,10 @@
                 </div>
 
                 <div class="right-inpanel">
-                    <img class="icon" src="../assets/icon/P.png" alt=""  data-aos="flip-left" data-aos-duration="1500" data-aos-delay="600">
-                    <img class="icon" src="../assets/icon/down.png" alt=""  data-aos="fade-down" data-aos-duration="1500" data-aos-delay="600">
+                    <img class="icon" src="../assets/icon/P.png" alt="" data-aos="flip-left" data-aos-duration="1500"
+                        data-aos-delay="600">
+                    <img class="icon" src="../assets/icon/down.png" alt="" data-aos="fade-down" data-aos-duration="1500"
+                        data-aos-delay="600">
                 </div>
             </div>
         </div>
@@ -58,6 +60,9 @@
 </script>
 
 <style lang="scss" scoped>
+    /*================*/
+    //                Mobile                 //
+    /*================*/
     .about {
         margin: 0;
         width: 100%;
@@ -74,83 +79,145 @@
         align-items: center;
     }
 
-    p.title{
-            font-size: 1.25vw;
-            font-family: consolas;
-            text-align: left;
-    }
-    p.content{
-            font-size: 1vw;
-            font-family: consolas;
-            text-align: left;
+    .icon {
+        width: 5%;
+        padding: 10px;
     }
 
-    .content-wrapper{
-        padding-top: 2vh;
-    }
-
-    .panel{
-        width: 80%;
-        height: 80%;
+    .panel {
+        width: 90%;
+        height: 85%;
         background: #E0E0E0;
         opacity: 70%;
         display: flex;
-        align-items: center;        
+        align-items: center;
+    }
 
-        .inpanel-wrapper{
-            width: 85%;
-            height: 85%;
-            margin: 0 auto;
-            display: flex;
+    .inpanel-wrapper{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .left-inpanel{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 30px;
+        flex: auto;
+        
+        .top #section2{
+            margin-top: 20px;
+        }
+        
+        .mid p{
+            font-size: 10vw;
         }
 
-        .left-inpanel{
-            width: 80%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
+        .bottom #contact{
+            margin-top: 20px;
+        }
 
-            .top{
-                width: 100%;
-                height: 30%;
-                
-                #section2{
-                    margin-top: 2vw;
-                }
-            }
-            .mid{
-                width: 100%;
-                height: 40%;
-                p{
-                    font-size: 5vw;
-                }
-            }
-            .bottom{
-                width: 100%;
-                height: 30%;
+    }
+
+    .right-inpanel{
+        flex-grow: .25;
+    }
+
+    
+
+    /*================*/
+    //                Desktop               //
+    /*================*/
+
+    @media screen and (min-width: 640px){
+
+        p.title{
+                font-size: 1.25vw;
+                font-family: consolas;
+                text-align: left;
+        }
+        p.content{
+                font-size: 1vw;
+                font-family: consolas;
+                text-align: left;
+        }
+
+        .content-wrapper{
+            padding-top: 1vh;
+        }
+
+        .panel{
+            width: 80%;
+            height: 80%;
+            background: #E0E0E0;
+            opacity: 70%;
+            display: flex;
+            align-items: center;        
+
+            .inpanel-wrapper{
+                width: 85%;
+                height: 85%;
+                margin: 0 auto;
                 display: flex;
-                
-                .card{
-                    margin-right: 20%;
-                    p.content{
-                        line-height: 40px;
+                flex-direction: row;
+            }
+
+            .left-inpanel{
+                width: 80%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                padding: 0;
+
+                .top{
+                    width: 100%;
+                    height: 30%;
+
+                    #section2{
+                        margin-top: 2vw;
+                    }
+                }
+                .mid{
+                    width: 100%;
+                    height: 40%;
+                    p{
+                        font-size: 5vw;
+                    }
+                }
+                .bottom{
+                    width: 100%;
+                    height: 30%;
+                    display: flex;
+
+                    #contact{
+                        margin-top: 0;
+                    }
+
+                    .card{
+                        margin-right: 10vw;
+                        p.content{
+                            line-height: 3vw;
+                        }
                     }
                 }
             }
-        }
 
-        .right-inpanel{
-            width: 20%;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-            justify-content: space-between;
-            
-            .icon{
-                width: 50%;
-                padding: 10px;
+            .right-inpanel{
+                width: 20%;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: space-between;
+
+                .icon{
+                    width: 50%;
+                    padding: 10px;
+                }
             }
         }
+        
     }
 </style>

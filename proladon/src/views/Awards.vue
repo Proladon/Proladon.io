@@ -138,7 +138,7 @@
     .award-nav {
         width: 100%;
         height: 10%;
-        font-size: 2em;
+        font-size: 2px;
         display: flex;
         justify-content: space-between;
 

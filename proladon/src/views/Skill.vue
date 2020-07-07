@@ -384,6 +384,10 @@
         outline: none;
     }
 
+    #class-hooper{
+        height: 100%;
+    }
+
     #skill-hooper {
         height: 100%;
     }

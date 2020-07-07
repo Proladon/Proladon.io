@@ -1,31 +1,36 @@
 <template>
     <div id="app">
-        <!-- <NavBar :class="{index_nav: current_section==0}" /> -->
         <div class="index-wrapper">
-            <Home class="section" :section="current_section"/>
+            <Home class="section" :section="current_section" />
             <About class="section" />
             <Skill class="section" />
             <Awards class="section" />
             <Youtube class="section" />
-            <Works class="section" id="sectionWorks"/>
+            <Works class="section" id="sectionWorks" />
         </div>
-        
+
+        <div class="menu-mask" :class="{mask_hide:menu}"></div>
+        <div class="side-menu" :class="{menu_hide:menu}">
+            <p>Home</p>
+            <p>About</p>
+            <p>Skills</p>
+            <p>Awards</p>
+            <p>Works</p>
+        </div>
+        <div class="menu-btn" @click="menu = !menu">Ω</div>
     </div>
 </template>
 
 <script>
     // import _ from 'lodash'
-    // import NavBar from '@/components/NavBar.vue'
     import Home from '@/views/Home.vue'
     import About from '@/views/About.vue'
     import Skill from '@/views/Skill.vue'
     import Awards from '@/views/Awards.vue'
     import Youtube from '@/views/Youtube.vue'
     import Works from '@/views/Works.vue'
-
     export default {
         components: {
-            // NavBar,
             Home,
             About,
             Skill,
@@ -33,99 +38,37 @@
             Youtube,
             Works
         },
-        data(){
-            return{
-                current_section: this.$store.state.current_section
+        data() {
+            return {
+                current_section: this.$store.state.current_section,
+                menu: false,
             }
         },
-        // mounted(){
-        //     const sectionWorks = document.getElementById("sectionWorks")
-        //     const options = {
-        //         threshold: 0.5,
-
-        //     }
-        //     const observer = 
-        //         new IntersectionObserver((entries, observer)=>{
-        //             entries.forEach(e=>{
-        //                 if(e.isIntersecting === true) alert("in")
-        //             })
-        //             console.log(entries, observer)
-                    
-        //         }, options)
-            
-        //     observer.observe(sectionWorks)
-        // },
-        // created() {
-        //     var ticking = false
-        //     // add wheel Event
-        //     window.addEventListener('wheel', _.throttle((evt) => {
-        //         var delta = evt.wheelDelta
-        //         const sections = document.querySelectorAll('.section')
-        //         var element
-        //         // scroll up
-        //         if (ticking != true) {
-        //             if (delta >= 30) {
-        //                 if (this.current_section > 0) {
-        //                     ticking = true
-        //                     this.current_section -= 1
-        //                     element = sections[this.current_section]
-        //                     this.$store.commit('changeSection', this.current_section) //update state
-        //                     scrollSection()
-        //                 }
-        //             }
-        //             // scroll down
-        //             else if (delta <= -30) {
-        //                 if (this.current_section < 3) {
-        //                     ticking = true
-        //                     this.current_section += 1
-        //                     element = sections[this.current_section]
-        //                     this.$store.commit('changeSection', this.current_section) //update state
-        //                     scrollSection()
-        //                 }
-        //             }
-        //             tickingOut()
-        //         }
-        //         // scroll function
-        //         function scrollSection() {
-        //             setTimeout(() => {
-        //                 window.scrollTo({
-        //                     'behavior': 'smooth',
-        //                     'left': 0,
-        //                     'top': element.offsetTop
-        //                 })
-        //             }, 100); //scroll delay
-        //         }
-        //         // lock scroll event
-        //         function tickingOut() {
-        //             setTimeout(() => {
-        //                 ticking = false
-        //             }, 600);
-        //         }
-        //     }, 60), false)
-        // },
-        computed:{
-            getCurrentSection: function(){
-                return this.$store.state.current_section
+        methods:{
+            toSection(sec){
+                const element = document.getElementsByClassName(sec)
+                window.scrollTo({
+                    'behavior': 'smooth',
+                    'left': 0,
+                    'top': element.offsetTop
+                })
             }
         },
-        watch: {
-            getCurrentSection: function(value) {
-                this.current_section = value
-            }
-        }
     }
 </script>
 
 <style lang="scss">
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+
     * {
         margin: 0;
         font-family: 'Roboto', sans-serif;
         // overflow-y: hidden;
     }
+
     // font
-    @font-face{
-        font-family: "AVS";    
+    @font-face {
+        font-family: "AVS";
         src: url('../src/assets/font/AV Semi-Round straight.ttf');
     }
 
@@ -136,14 +79,60 @@
         text-align: center;
         color: #2c3e50;
         height: 100%;
-        
+
     }
 
-    body{
+    body {
         background-color: rgb(38, 38, 38);
     }
 
-    .index_nav{
+    .menu-mask {
+        position: fixed;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100%;
+        background: black;
+        opacity: .7;
+        transition-property: all;
+        transition: ease-in-out 1s;
+    }
+
+    .mask_hide{
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    .side-menu {
+        position: fixed;
+        width: 30%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 0;
+        right: 0;
+        transition: ease-in-out .7s;
+
+        p {
+            color: white;
+        }
+    }
+
+    .menu_hide {
+        width: 0;
+        transition: ease-in-out .7s;
+    }
+
+    .menu-btn {
+        position: fixed;
+        color: aquamarine;
+        top: 20px;
+        right: 20px;
+        cursor: pointer;
+    }
+
+    .index_nav {
         visibility: collapse;
         background-color: transparent !important;
     }

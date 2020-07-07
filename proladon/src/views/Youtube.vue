@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 export default {
     name: 'Youtube',
     data(){
@@ -23,21 +23,21 @@ export default {
 
     },
     mounted(){
-        axios.get(this.base + 'channels',{
-            params:{
-                key: this.key,
-                part: "snippet,statistics",
-                id: "UCczXI0u-LKlX-oBwrkKtOdg"
-            }
-        }).then(res=>{
-            const data = res.data.items[0] 
-            this.name = data.snippet.title
-            this.subs = data.statistics.subscriberCount
-            this.viewcount = data.statistics.viewCount
+        // axios.get(this.base + 'channels',{
+        //     params:{
+        //         key: this.key,
+        //         part: "snippet,statistics",
+        //         id: "UCczXI0u-LKlX-oBwrkKtOdg"
+        //     }
+        // }).then(res=>{
+        //     const data = res.data.items[0] 
+        //     this.name = data.snippet.title
+        //     this.subs = data.statistics.subscriberCount
+        //     this.viewcount = data.statistics.viewCount
 
-        }).catch(err=>{
-            console.log(err)
-        })
+        // }).catch(err=>{
+        //     console.log(err)
+        // })
     }
 }
 </script>

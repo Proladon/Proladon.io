@@ -1,19 +1,13 @@
 <template>
-  <div id="app">
-
-  </div>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
 </template>
 
-<script>
-
-export default {
-  name: 'App',
-  components: {
-  }
-}
+<script lang="ts" setup>
+import HelloWorld from '@/components/HelloWorld.vue'
 </script>
 
-<style lang="scss">
+<style lang="postcss">
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
